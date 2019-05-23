@@ -1,21 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
 
-function Welcome(props) {
-  return <h1>Привет, {props.name}</h1>;
-}
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
 
-function App() {
-  return(
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
     <div>
-      <Welcome name='Ivan'/>
-      <Welcome name='Ivan'/>
-      <Welcome name='Ivan'/>
+      <h1> Hello</h1>
+      <h2> Now {this.state.date.toLocaleTimeString()}.</h2>
     </div>
   );
+  }
 }
+
 ReactDOM.render(
-  <App />,
+  <Clock />,
   document.getElementById('root')
 )
