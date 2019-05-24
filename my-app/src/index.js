@@ -1,40 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
-  }
-
-  render() {
-    return (
-    <div>
-      <h1> Hello</h1>
-      <h2> Now {this.state.date.toLocaleTimeString()}.</h2>
-    </div>
-  );
-  }
+function UserGreeting (props){
+  return <h1>Hallo</h1>;
 }
 
+function GuestGreeting (props){
+  return <h1>Sign in</h1>;
+}
+
+function Greeting (props) {
+  const isLoggedIn = props.isLoggedIn;
+  if(isLoggedIn){
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+
+}
+
+
 ReactDOM.render(
-  <Clock />,
+  <Greeting isLoggedIn={true} />,
   document.getElementById('root')
 )
