@@ -1,25 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
-function UserGreeting (props){
-  return <h1>Hallo</h1>;
-}
+const numbers = [1,2,3,4,5];
+const numberList = numbers.map((number) =>
+    <li className='colorText'>{number}</li>
+  );
 
-function GuestGreeting (props){
-  return <h1>Sign in</h1>;
-}
-
-function Greeting (props) {
-  const isLoggedIn = props.isLoggedIn;
-  if(isLoggedIn){
-    return <UserGreeting />;
-  }
-  return <GuestGreeting />;
-
-}
 
 
 ReactDOM.render(
-  <Greeting isLoggedIn={true} />,
+  <ul>{numberList}</ul>,
   document.getElementById('root')
-)
+);
