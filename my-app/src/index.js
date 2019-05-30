@@ -1,15 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-
-const numbers = [1,2,3,4,5];
-const numberList = numbers.map((number) =>
-    <li className='colorText'>{number}</li>
-  );
-
-
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
 ReactDOM.render(
-  <ul>{numberList}</ul>,
+  <App />,
   document.getElementById('root')
-);
+)
