@@ -8,8 +8,35 @@ class MainContent extends React.Component {
          <Header username="Ivan"/>
          <Greeting/>
          <Age />
+         <LogInOut />
        </main>
     );
+  }
+}
+
+class LogInOut extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      inLog: true,
+      outLog: false,
+    }
+  }
+  render(){
+    let log;
+    if(this.state.inLog){
+      log = 'IN';
+    } else if(this.state.outLog) {
+      log = 'OUT';
+    } else{
+      log = 'where are you?'
+    }
+
+    return(
+      <div>
+        <p>Ivan, now you {log}!</p>
+      </div>
+    )
   }
 }
 
