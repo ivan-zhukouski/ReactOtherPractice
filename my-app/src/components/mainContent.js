@@ -7,8 +7,26 @@ class MainContent extends React.Component {
        <main>
          <Header username="Ivan"/>
          <Greeting/>
+         <Age />
        </main>
     );
+  }
+}
+
+class Age extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      name: "Ivan",
+      age: 18
+    }
+  }
+  render(){
+    return(
+        <div>
+          <p>I know you, you are {this.state.name}, and your age is{this.state.age}!</p>
+        </div>
+    )
   }
 }
 
