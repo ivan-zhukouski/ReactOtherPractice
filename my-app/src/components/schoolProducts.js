@@ -1,21 +1,21 @@
 const product = [
   {
     id:"1",
-    name: "cola",
+    text: "cola",
     price: 3,
-    description: "it's ok",
+    completed: true,
   },
   {
     id:"2",
-    name: "bread",
+    tex: "bread",
     price: 2,
-    description: "very cool product",
+    completed: false,
   },
   {
     id:"3",
-    name: "eggs",
+    text: "eggs",
     price: 6,
-    description: "healthy product",
+    completed: true,
   },
 ];
 export default product
