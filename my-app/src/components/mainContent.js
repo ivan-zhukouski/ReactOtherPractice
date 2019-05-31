@@ -9,11 +9,39 @@ class MainContent extends React.Component {
          <Greeting/>
          <Age />
          <LogInOut />
+         <ChangeNumber />
        </main>
     );
   }
 }
 
+class ChangeNumber extends React.Component{
+constructor(){
+  super()
+      this.state = {
+      count: 0,
+    }
+    this.handleClick = this.handleClick.bind(this)
+}
+
+handleClick(){
+  this.setState(prevCount => {
+    return{
+      count: prevCount.count + 7
+    }
+  })
+}
+
+  render(){
+
+    return(
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick = {this.handleClick}>ClickMe</button>
+      </div>
+    )
+  }
+}
 class LogInOut extends React.Component{
   constructor(){
     super()
