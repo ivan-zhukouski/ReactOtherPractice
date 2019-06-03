@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import Conditional from './conditional'
 
 class MainContent extends React.Component {
   render(){
@@ -10,9 +10,34 @@ class MainContent extends React.Component {
          <Age />
          <LogInOut />
          <ChangeNumber />
+         <Inload />
        </main>
     );
   }
+}
+
+class Inload extends React.Component {
+  constructor (){
+    super()
+    this.state = {
+      inLoading: true
+    }
+  }
+
+  componentDidMount() {
+    setTimeout (() => {
+      this.setState({
+        inLoading: false
+      })
+    }, 1500)
+  }
+
+  render() {
+    return(
+      <Conditional inLoading = {this.state.inLoading}/>
+    )
+  }
+
 }
 
 class ChangeNumber extends React.Component{
