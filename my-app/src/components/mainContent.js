@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Conditional from './conditional'
+import LoggedInOrOut from './logged'
 
 class MainContent extends React.Component {
   render(){
@@ -11,6 +12,7 @@ class MainContent extends React.Component {
          <LogInOut />
          <ChangeNumber />
          <Inload />
+         <LoggedInOrOut />
        </main>
     );
   }
@@ -28,6 +30,7 @@ class Inload extends React.Component {
     setTimeout (() => {
       this.setState({
         inLoading: false
+
       })
     }, 1500)
   }
