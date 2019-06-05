@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Conditional from './conditional'
 import LoggedInOrOut from './logged'
+import UnreadMassages from './unread'
+import FirstForm from './form'
 
 class MainContent extends React.Component {
   render(){
@@ -13,6 +15,8 @@ class MainContent extends React.Component {
          <ChangeNumber />
          <Inload />
          <LoggedInOrOut />
+         <UnreadMassages />
+         <FirstForm />
        </main>
     );
   }
