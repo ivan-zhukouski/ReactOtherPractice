@@ -7,7 +7,9 @@ class FirstForm extends React.Component {
     this.state = {
       firstName:"",
       lastName:"",
-      friendly:false
+      friendly:false,
+      gender: "",
+      favColor:""
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -49,6 +51,44 @@ class FirstForm extends React.Component {
           />
           Is friendly?
         </label>
+        <br/>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value={"male"}
+            checked = {this.state.gender === "male"}
+            onChange={this.handleChange}
+          />
+          Male
+        </label>
+        <br/>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value={"female"}
+            checked = {this.state.gender ==="female"}
+            onChange={this.handleChange}
+          />
+          Female
+        </label>
+        <br/>
+        <label>Favorit color:
+          <select
+            onChange={this.handleChange}
+            name = "favColor">
+
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+          </select>
+        </label>
+        <h1>You are a {this.state.gender}</h1>
+        <h2>Your favorit color is {this.state.favColor}</h2>
       </form>
     )
   }
