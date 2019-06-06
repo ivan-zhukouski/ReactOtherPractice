@@ -16,6 +16,7 @@ class MainContent extends React.Component {
          <Inload />
          <LoggedInOrOut />
          <UnreadMassages />
+         <hr/>
          <FirstForm />
        </main>
     );
