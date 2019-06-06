@@ -7,21 +7,27 @@ class FirstForm extends React.Component {
     this.state = {
       firstName:"",
       lastName:"",
-      friendly:false,
+      age:"",
       gender: "",
-      favColor:""
+      destination:"",
+      isVegan: false,
+      isKosher: false,
+      isLactoseFree: false
     }
     this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(event){
-    const {name, value, type, checked} = event.target;
-    type ==="checkbox" ? this.setState({ [name]:checked}) : this.setState({[name]:value})
+  handleChange(event) {
+  const {name, value, type, checked,} = event.target;
+  type === "checkbox" ? this.setState({[name]: checked}): this.setState({[name]: value})
 
   }
+
   render(){
     return(
+      <main>
       <form>
         <input
+           placeholder = "First name"
            type="text"
            onChange={this.handleChange}
            name="firstName"
@@ -29,34 +35,27 @@ class FirstForm extends React.Component {
         />
         <br />
         <input
+           placeholder = "Last name"
            type="text"
            onChange={this.handleChange}
            name="lastName"
            value = {this.state.lastName}
         />
-        <h2>{this.state.firstName} {this.state.lastName}</h2>
+
         <br />
-        <textarea
-          type= "text"
-          onChange={this.handleChange}
-          value = {"Something"}
+        <input
+           placeholder = "age"
+           type="text"
+           onChange={this.handleChange}
+           name="age"
+           value = {this.state.age}
         />
-        <br/>
-        <label>
-          <input
-            type="checkbox"
-            name="friendly"
-            checked = {this.state.friendly}
-            onChange={this.handleChange}
-          />
-          Is friendly?
-        </label>
         <br/>
         <label>
           <input
             type="radio"
             name="gender"
-            value={"male"}
+            value = {"male"}
             checked = {this.state.gender === "male"}
             onChange={this.handleChange}
           />
@@ -68,28 +67,54 @@ class FirstForm extends React.Component {
             type="radio"
             name="gender"
             value={"female"}
-            checked = {this.state.gender ==="female"}
+            checked = {this.state.gender === "female"}
             onChange={this.handleChange}
           />
           Female
         </label>
         <br/>
-        <label>Favorit color:
+        <label> Your destination:
           <select
             onChange={this.handleChange}
-            name = "favColor">
+            name = "destination">
 
-            <option value="green">Green</option>
-            <option value="red">Red</option>
-            <option value="yellow">Yellow</option>
-            <option value="black">Black</option>
-            <option value="pink">Pink</option>
-            <option value="purple">Purple</option>
+            <option value="">--Choose please the country--</option>
+            <option value="Germany">Germany</option>
+            <option value="USA">USA</option>
+            <option value="Australia">Australia</option>
+            <option value="Belarus">Belarus</option>
+            <option value="Norway">Norway</option>
+            <option value="Russia">Russia</option>
           </select>
         </label>
-        <h1>You are a {this.state.gender}</h1>
-        <h2>Your favorit color is {this.state.favColor}</h2>
+        <br />
+        <label>
+          <input type = "checkbox" name= "isVegan" onChange= {this.handleChange} checked = {this.state.isVegan}/>
+          Is vegan?
+        </label>
+        <br/>
+        <label>
+          <input type = "checkbox" name= "isKosher" onChange= {this.handleChange} checked = {this.state.isKosher}/>
+          Is kosher?
+        </label>
+        <br/>
+        <label>
+          <input type = "checkbox" name= "isLactoseFree" onChange= {this.handleChange} checked = {this.state.isLactoseFree}/>
+          Is lactose Free?
+        </label>
+
+
+
       </form>
+      <hr/>
+      <h1>{this.state.firstName} {this.state.lastName}</h1>
+      <h1>Your age is {this.state.age}</h1>
+      <h1>Your gender is {this.state.gender}</h1>
+      <h1>Your destination is {this.state.destination}</h1>
+      <p>Vegan: {this.state.isVegan ? "Yes" : "No"}</p>
+      <p>Kosher: {this.state.isKosher ? "Yes" : "No"}</p>
+      <p>Lactose free: {this.state.isLactoseFree ? "Yes" : "No"}</p>
+      </main>
     )
   }
 }
